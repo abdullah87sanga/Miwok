@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
         TextView colors= (TextView) findViewById(R.id.colors);
+        TextView family= (TextView) findViewById(R.id.family);
+        TextView numbers= (TextView) findViewById(R.id.numbers);
+        TextView phrases= (TextView) findViewById(R.id.phrases);
+
         colors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,25 +42,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,FamilyActivity.class);
+                startActivity(i);
+            }
+        });
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,NumbersActivity.class);
+                startActivity(i);
+            }
+        });
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,PhrasesActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 
-    public void callActivities(View v) {
-        if (v.getId()==R.id.colors){
-//            Intent i=new Intent(this,ColorsActivity.class);
-//            startActivity(i);
-        }else if (v.getId()==R.id.family){
-            Intent i=new Intent(this,FamilyActivity.class);
-            startActivity(i);
-        }else if (v.getId()==R.id.numbers){
-            Intent i=new Intent(this,NumbersActivity.class);
-            startActivity(i);
-        }else {
-            Intent i=new Intent(this,PhrasesActivity.class);
-            startActivity(i);
-        }
 
 
-    }
+
+
 }

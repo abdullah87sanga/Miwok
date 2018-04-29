@@ -17,13 +17,14 @@ class WordAdapter extends ArrayAdapter<Word> {
     public WordAdapter(Activity context, ArrayList<Word> words) {
         super(context, 0, words);
     }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        
+
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
@@ -42,8 +43,17 @@ class WordAdapter extends ArrayAdapter<Word> {
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         defultTextView.setText(currentWord.getDefaultTranslation());
-ImageView image=(ImageView) listItemView.findViewById(R.id.image);
-image.setImageResource(currentWord.getImageResourceId());
+        ImageView image = (ImageView) listItemView.findViewById(R.id.image);
+        // Check if an image is provided for this word or not
+        if (currentWord.hasImage()) {
+            // Check if an image is provided for this word or not
+            image.setImageResource(currentWord.getImageResourceId());
+            // Make sure the view is visible
+            image.setVisibility(View.VISIBLE);
+        } else {
+            // Otherwise hide the ImageView (set visibility to GONE)
+            image.setVisibility(View.GONE);
+        }
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
 //        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
         // Get the image resource ID from the current AndroidFlavor object and

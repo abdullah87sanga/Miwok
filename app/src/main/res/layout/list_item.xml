@@ -4,6 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/tan_background"
     >
     <ImageView
         android:id="@+id/image"
@@ -19,17 +20,14 @@
     android:layout_height="wrap_content">
 
         <TextView
+            style="@style/MiwokText"
             android:id="@+id/miwok_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
             tools:text="lutti" />
 
         <TextView
-            android:textSize="20sp"
+            style="@style/EnglishText"
             android:id="@+id/defult_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
             tools:text="one" />
     </LinearLayout>
 
